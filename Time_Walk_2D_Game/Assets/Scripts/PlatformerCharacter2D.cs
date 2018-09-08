@@ -8,8 +8,8 @@ namespace UnityStandardAssets._2D
         [SerializeField] private float m_MaxSpeed = 10f;                    
         [SerializeField] private float m_JumpForce = 400f;                  
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  
-        [SerializeField] private bool m_AirControl = false;                
-        [SerializeField] private LayerMask m_WhatIsGround;                  
+        [SerializeField] private bool m_AirControl = false;           
+        [SerializeField] private LayerMask m_WhatIsGround;           
 
         private Transform m_GroundCheck;
         const float k_GroundedRadius = .2f;
@@ -43,7 +43,6 @@ namespace UnityStandardAssets._2D
 
             //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
-
 
         public void Move(float move, bool crouch, bool jump)
         {
