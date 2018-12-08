@@ -1,41 +1,40 @@
 ﻿using UnityEngine;
-
-using UnityEngine.UI; // обязательно добавляем библиотеку пользовательского интерфейса, без нее кино не будет
-
+using UnityEngine.UI;
 using System.Collections;
 
 public class BackgroundHelper : MonoBehaviour {
 
-    public float speed = 0; //эта публичная переменная отобразится в инспекторе, там же мы ее можем и менять. Это очень удобно, чтобы настроить скорость разным слоям картинки
+    public float speed = 0;
 
-    float pos = 0; //переменная для позиции картинки
+    private float posLayer = 0;
+    public float maxPosX;
+    private float lastPlayerX = 0;
+    private float nowPlayerX = 0;
 
-    private RawImage image; //создаем объект нашей картинки
+    private RawImage image;
+    private Transform player;
 
-      
+    void Start() {
+        image = GetComponent<RawImage>();//get link to back image
+        player = GameObject.FindGameObjectWithTag("Player").transform;//get link to player
+    }
 
-       void Start () {
+    void FixedUpdate() {
+        nowPlayerX = player.position.x;
+        if (nowPlayerX != lastPlayerX) {
+            layerMove(nowPlayerX < lastPlayerX);
+            
+            lastPlayerX = nowPlayerX;
+        }
+    }
 
-        image = GetComponent<RawImage>();//в старте получаем ссылку на картинку
-
-        }    
-
-      
-
-        void Update () {
-
-        //в апдейте прописываем как, с какой скоростью и куда мы будем двигать нашу картинку
-
-          pos += speed;
-
-            if (pos > 1.0F)
-
-                pos -= 1.0F;
-
-            image.uvRect = new Rect(pos, 0, 1, 1);
-
-       }
-
-   
-
+    void layerMove(bool left) {
+        if (left && posLayer - speed >= 0) {
+            posLayer -= speed;
+        } else if (posLayer + speed <= maxPosX) {
+            posLayer += speed;
+        } else { return; }
+        //Update layer
+        image.uvRect = new Rect(posLayer, 0, 1, 1);
+    }
 }
