@@ -425,8 +425,8 @@ GameObject:
   m_Component:
   - component: {fileID: 288251224}
   - component: {fileID: 288251227}
-  - component: {fileID: 288251226}
   - component: {fileID: 288251225}
+  - component: {fileID: 288251226}
   m_Layer: 2
   m_Name: Top
   m_TagString: Untagged
@@ -449,8 +449,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 863, y: 0}
-  m_SizeDelta: {x: 1724, y: 0}
+  m_AnchoredPosition: {x: 400.55008, y: 0}
+  m_SizeDelta: {x: 798.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288251225
 MonoBehaviour:
@@ -506,7 +506,6 @@ GameObject:
   m_Component:
   - component: {fileID: 379795265}
   - component: {fileID: 379795268}
-  - component: {fileID: 379795267}
   - component: {fileID: 379795266}
   m_Layer: 2
   m_Name: Back
@@ -530,8 +529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865, y: 0}
-  m_SizeDelta: {x: 1724, y: 0}
+  m_AnchoredPosition: {x: 401.50003, y: 0}
+  m_SizeDelta: {x: 797, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379795266
 MonoBehaviour:
@@ -545,32 +544,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.0001
---- !u!114 &379795267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 379795264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 22e3315c626fa5646947040aa5f976b4, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!222 &379795268
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -774,8 +747,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1021794558}
   - component: {fileID: 1021794561}
-  - component: {fileID: 1021794560}
   - component: {fileID: 1021794559}
+  - component: {fileID: 1021794560}
   m_Layer: 2
   m_Name: Middle
   m_TagString: Untagged
@@ -798,8 +771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865, y: 0}
-  m_SizeDelta: {x: 1724, y: 0}
+  m_AnchoredPosition: {x: 401.50003, y: 0}
+  m_SizeDelta: {x: 797, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021794559
 MonoBehaviour:
@@ -1247,7 +1220,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 2
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
