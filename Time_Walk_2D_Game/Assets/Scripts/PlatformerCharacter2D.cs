@@ -9,7 +9,7 @@ namespace UnityStandardAssets._2D
         [SerializeField] private float m_JumpForce = 400f;                  
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  
         [SerializeField] private bool m_AirControl = false;           
-        [SerializeField] private LayerMask m_WhatIsGround;           
+        [SerializeField] private LayerMask m_WhatIsGround;       
 
         private Transform m_GroundCheck;
         const float k_GroundedRadius = .2f;
@@ -40,7 +40,6 @@ namespace UnityStandardAssets._2D
                     m_Grounded = true;
             }
             //m_Anim.SetBool("Ground", m_Grounded);
-
             //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
