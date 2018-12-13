@@ -31,7 +31,7 @@ public class BackgroundHelper : MonoBehaviour {
     void layerMove(bool left) {
         if (left && posLayer - speed >= 0) {
             posLayer -= speed;
-        } else if (posLayer + speed <= maxPosX) {
+        } else if (!left && posLayer + speed <= maxPosX) {
             posLayer += speed;
         } else { return; }
         //Update layer
