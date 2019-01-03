@@ -24,7 +24,7 @@ public class BackgroundHelper : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform; //get link to player
         //GetComponent<RectTransform>().position
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>() as Camera;
-        //Paralax = GameObject.FindGameObjectWithTag("Paralax").;
+        Paralax = GameObject.FindGameObjectWithTag("Paralax").GetComponent<RectTransform>();
         horBound = cam.orthographicSize / Screen.height * Screen.width;
     }
 
@@ -43,12 +43,14 @@ public class BackgroundHelper : MonoBehaviour {
         if (left && posLayer - speed >= 0) {
             posLayer -= speed;
             maxPosX--;
-        } else if (!left && (2403.6F * (posLayer + speed)) < 2403.6 - 1427) {
+        } else if (!left && 
+            (image.rectTransform.rect.width * (posLayer + speed)) 
+                < image.rectTransform.rect.width - Paralax.rect.width) {
             posLayer += speed;
             maxPosX++;
         } else { return; }
         //Update layer
         image.uvRect = new Rect(posLayer, 0, 1, 1);
-        posNow = (2403.6F * (posLayer + speed));
+        posNow = Paralax.rect.width;
     }
 }
