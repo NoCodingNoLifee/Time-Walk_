@@ -1,0 +1,8 @@
+[shield]
+IconSize=size1x1
+IconCounter=1
+IconPositionX=-100
+IconPositionY=150
+
+Field_isLocked=1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+Field_item=shield,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
