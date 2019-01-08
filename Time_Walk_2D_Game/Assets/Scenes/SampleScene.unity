@@ -190,6 +190,8 @@ MonoBehaviour:
   - {fileID: 61034006}
   icons:
   - {fileID: 1243490567}
+  main_character: {fileID: 1317276201}
+  take_distances: 2
 --- !u!114 &16734793
 MonoBehaviour:
   m_ObjectHideFlags: 0

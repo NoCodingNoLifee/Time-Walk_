@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour {
 	[SerializeField] private int width = 5, height = 5;
 	[SerializeField] private InventoryCells[] cells;
 	[SerializeField] private InventoryIcon[] icons;
+	[SerializeField] private GameObject main_character;
 	//[SerializeField] private Camera main_camera;
 
 	private bool isCrypt = false;
@@ -186,6 +187,7 @@ public class Inventory : MonoBehaviour {
 		writer.WriteLine(Crypt("Field_isLocked=" + t_isLocked));
 		writer.WriteLine(Crypt("Field_item=" + t_item));
 
+
 		writer.Close();
 		Debug.Log(this + " сохранение инвентаря игрока: " + Path());
 	}
@@ -228,8 +230,8 @@ public class Inventory : MonoBehaviour {
 				var obj = items_list[j];
 				obj.gameObject.SetActive(true);
 				obj.gameObject.transform.SetParent(items);
-				obj.gameObject.transform.position=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-				obj.gameObject.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, 0f);
+				//obj.gameObject.transform.position=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				obj.gameObject.transform.position=main_character.transform.position;
 
 				items_list.RemoveAt(j);
 				return;
@@ -257,7 +259,7 @@ public class Inventory : MonoBehaviour {
 			}
 		}
 
-		LoadSettings();
+		//LoadSettings();
 	}
 
 	InventoryComponent GetCurrent() // запрос компонента с объекта
@@ -308,6 +310,18 @@ public class Inventory : MonoBehaviour {
 
 		return null;
 	}
+	public float take_distances;
+	bool TakeDistances()
+	{
+		if (current) {
+		if (Vector2.Distance(main_character.transform.position, current.gameObject.transform.position) < take_distances)
+			return true;
+		else
+			return false;
+		}
+		else
+			return true;
+	}
 
 	void Control() 
 	{
@@ -320,16 +334,15 @@ public class Inventory : MonoBehaviour {
 				Debug.Log("ITEMS: " + i.ToString());
 			}*/
 			current = GetCurrent();
-			if(!current) return;
+			if(!current || !TakeDistances()) return;
 			Debug.Log(current.ToString());
 			icon = SetIcon(current.size, current.item, overlap);
 			current.gameObject.SetActive(false);
 		}
-		else if((Input.GetMouseButtonUp(0) && icon))
+		else if(Input.GetMouseButtonUp(0) && icon)
 		{
 			if(!IsInside(icon.element))
 			{
-				Debug.Log("...");
 				if(OnEndDrag != null && icon.isInside) { OnEndDrag(icon.item, icon.counter); }// выполняем событие
 				RemoveItem(icon.item);
 				ResetCurrent();
@@ -359,7 +372,7 @@ public class Inventory : MonoBehaviour {
 		else if(Input.GetMouseButtonDown(1))
 		{
 			current = GetCurrent();
-			if(current) AddQuickly();
+			if(current && TakeDistances()) AddQuickly();
 		}
 	}
 
