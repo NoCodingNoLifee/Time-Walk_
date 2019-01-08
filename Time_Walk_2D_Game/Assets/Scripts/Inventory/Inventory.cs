@@ -525,6 +525,12 @@ public class Inventory : MonoBehaviour {
 	}
 
 	#if UNITY_EDITOR
+	void OnValidate()
+	{
+		if (take_distances<1)
+		take_distances=1;
+	}
+
 	public void BuildGrid() // для создания сетки
 	{
 		foreach(InventoryCells cell in cells)

@@ -90,5 +90,13 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+    
+#if UNITY_EDITOR
+void OnValidate()
+{
+    if (m_MaxSpeed<0)
+        m_MaxSpeed=0;
+}
+#endif
     }
 }
